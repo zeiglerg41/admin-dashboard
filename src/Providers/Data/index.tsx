@@ -1,5 +1,8 @@
 // Import the GraphQLClient class from the "@refinedev/nestjs-query" package
 import { GraphQLClient } from "@refinedev/nestjs-query";
+// Import fetchWrapper from the "@refinedev/fetch-wrapper" package
+import { fetchWrapper } from "./fetch-wrapper";
+
 
 // Declare a constant named API_URL and assign it the GraphQL API endpoint URL
 export const API_URL = "https://api.refine.dev/graphql";
