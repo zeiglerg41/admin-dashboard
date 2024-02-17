@@ -1,11 +1,17 @@
-// Import the GraphQLClient class from the "@refinedev/nestjs-query" package
-import { GraphQLClient } from "@refinedev/nestjs-query";
+// Import the Data Provider and GraphQLClient class from the "@refinedev/nestjs-query" package
+import graphqlDataProvider, {
+  GraphQLClient,
+  liveProvider as graphqlLiveProvider,
+} from "@refinedev/nestjs-query";
 // Import fetchWrapper from the "@refinedev/fetch-wrapper" package
 import { fetchWrapper } from "./fetch-wrapper";
-
+// Import createClient from the "graphql-ws" package
+import { createClient } from "graphql-ws";
 
 // Declare a constant named API_URL and assign it the GraphQL API endpoint URL
 export const API_URL = "https://api.refine.dev/graphql";
+export const API_BASE_URL = "https://api.crm.refine.dev";
+export const WS_URL = "wss://api.refine.dev/graphql";
 
 // Initialize a new GraphQLClient instance named "client" with the API_URL
 export const client = new GraphQLClient(API_URL, {
@@ -20,3 +26,23 @@ export const client = new GraphQLClient(API_URL, {
     }
   },
 });
+// Initialize a new WebSocketClient instance named "wsClient" with the WS_URL
+export const wsClient =
+  typeof window !== "undefined"
+    ? createClient({
+        url: WS_URL,
+        connectionParams: () => {
+          const accessToken = localStorage.getItem("accessToken");
+
+          return {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          };
+        },
+      })
+    : undefined;
+
+export const dataProvider = graphqlDataProvider(client);
+
+export const liveProvider = wsClient ? graphqlLiveProvider(wsClient) : undefined;

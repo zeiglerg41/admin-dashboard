@@ -81,13 +81,3 @@ export const fetchWrapper = async (url: string, options: RequestInit) => {
   // Otherwise, return the response
   return response;
 };
-
-
-fndjksabvhjdbksalv
-DFv
-abvdf
-bqa
-
-FastBackwardFilledf
-dabf
-abd
