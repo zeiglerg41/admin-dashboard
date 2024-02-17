@@ -9,8 +9,8 @@ import { fetchWrapper } from "./fetch-wrapper";
 import { createClient } from "graphql-ws";
 
 // Declare a constant named API_URL and assign it the GraphQL API endpoint URL
-export const API_URL = "https://api.refine.dev/graphql";
 export const API_BASE_URL = "https://api.crm.refine.dev";
+export const API_URL = `${API_BASE_URL}/graphql`;
 export const WS_URL = "wss://api.refine.dev/graphql";
 
 // Initialize a new GraphQLClient instance named "client" with the API_URL
