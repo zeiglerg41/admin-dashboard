@@ -1,7 +1,39 @@
+import { DealsChart, UpcomingEvents } from "@/components";
+import { Col, Row } from "antd";
+
 export const Home = () => {
-    return (
-        <div>
-            <h1>Home</h1>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Row
+        // Props
+        gutter={[32, 32]}
+        style={{
+          marginTop: "32px",
+        }}
+      >
+        <Col
+          // Props
+          xs={24}
+          sm={24}
+          xl={8}
+          style={{
+            height: "460px",
+          }}
+        >
+          <UpcomingEvents />
+        </Col>
+        <Col
+          // Props
+          xs={24}
+          sm={24}
+          xl={8}
+          style={{
+            height: "460px",
+          }}
+        >
+          <DealsChart />
+        </Col>
+      </Row>
+    </div>
+  );
+};
