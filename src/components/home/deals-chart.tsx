@@ -54,7 +54,7 @@ const DealsChart = () => {
       formatter: (data) => {
         return {
           name: data.state,
-          value: `${Number(data.value) / 1000}k`,
+          value: `$${Number(data.value) / 1000}k`,
         };
       },
     },
