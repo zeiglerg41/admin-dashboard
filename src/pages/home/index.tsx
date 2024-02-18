@@ -1,6 +1,7 @@
 import {
   DashboardTotalCountCard,
   DealsChart,
+  LatestActivities,
   UpcomingEvents,
 } from "@/components";
 import { DASHBOARD_TOTAL_COUNTS_QUERY } from "@/graphql/queries";
@@ -13,8 +14,8 @@ export const Home = () => {
     url: "",
     method: "get",
     meta: {
-        gqlQuery: DASHBOARD_TOTAL_COUNTS_QUERY
-    }
+      gqlQuery: DASHBOARD_TOTAL_COUNTS_QUERY,
+    },
   });
   return (
     <div>
@@ -70,6 +71,16 @@ export const Home = () => {
           }}
         >
           <DealsChart />
+        </Col>
+      </Row>
+      <Row
+        gutter={[32, 32]}
+        style={{
+          marginTop: "32px",
+        }}
+      >
+        <Col xs={24}>
+          <LatestActivities />
         </Col>
       </Row>
     </div>
