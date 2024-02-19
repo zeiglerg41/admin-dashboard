@@ -18,7 +18,7 @@ import routerBindings, {
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { authProvider } from "./Providers/auth";
-import { Home, ForgotPassword, Login, Register } from "./pages";
+import { Home, ForgotPassword, Login, Register, CompanyList } from "./pages";
 import Layout from "./components/layout";
 import { resources } from "./config/resources";
 
@@ -50,17 +50,19 @@ function App() {
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route
                   element={
-                      <Authenticated
+                    <Authenticated
                       key="authenticated-layout"
                       fallback={<CatchAllNavigate to="/login" />}
-                  // Renders child route of current route, rendered inside of the outlet
-                      >
+                      // Renders child route of current route, rendered inside of the outlet
+                    >
                       <Layout>
-                      <Outlet />
-                  </Layout>
-                  </Authenticated>
-                  }>
-                      <Route index element={<Home />} />
+                        <Outlet />
+                      </Layout>
+                    </Authenticated>
+                  }
+                >
+                  <Route index element={<Home />} />
+                  <Route path="/companies" element={<CompanyList />} />
                 </Route>
               </Routes>
               <RefineKbar />
