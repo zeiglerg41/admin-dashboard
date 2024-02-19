@@ -1,12 +1,11 @@
-import React from "react";
-import { CompanyList } from "./list";
 import { Form, Input, Modal, Select } from "antd";
+import { CompanyList } from "./list";
 import { useModalForm, useSelect } from "@refinedev/antd";
 import { useGo } from "@refinedev/core";
 import { CREATE_COMPANY_MUTATION } from "@/graphql/mutations";
 import { USERS_SELECT_QUERY } from "@/graphql/queries";
-import { SelectOptonWithAvatar } from "@/components";
-import { GetFields, GetFieldsFromList } from "@refinedev/nestjs-query";
+import { SelectOptionWithAvatar } from "@/components";
+import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { UsersSelectQuery } from "@/graphql/types";
 
 const Create = () => {
@@ -33,7 +32,9 @@ const Create = () => {
       gqlMutation: CREATE_COMPANY_MUTATION,
     },
   });
-  const { selectProps, queryResult } = useSelect<GetFieldsFromList<UsersSelectQuery>>({
+  const { selectProps, queryResult } = useSelect<
+  GetFieldsFromList<UsersSelectQuery>
+  >({
     resource: "users",
     optionLabel: "name",
     meta: {
@@ -47,7 +48,7 @@ const Create = () => {
         mask={true}
         onCancel={goToListPage}
         title="Create Company"
-        width='512px'
+        width="512px"
       >
         <Form {...formProps} layout="vertical">
           <Form.Item
@@ -67,15 +68,15 @@ const Create = () => {
               {...selectProps}
               options={
                 queryResult.data?.data.map((user) => ({
-                value: user.id,
-                label: (
-                  <SelectOptonWithAvatar
-                    name={user.name}
-                    avatarUrl={user.avatarUrl ?? undefined}
-                  />
-                ),
-              })) ?? []
-            }
+                  value: user.id,
+                  label: (
+                    <SelectOptionWithAvatar
+                      name={user.name}
+                      avatarUrl={user.avatarUrl ?? undefined}
+                    />
+                  ),
+                })) ?? []
+              }
             />
           </Form.Item>
         </Form>
