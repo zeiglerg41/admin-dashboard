@@ -7,6 +7,7 @@ import ProjectCardSkeleton from "./skeleton/project-card";
 import LatestActivitiesSkeleton from "./skeleton/latest-activities";
 import DashboardTotalCountCard from "./home/total-count-card";
 import LatestActivities from "./home/latest-activities";
+import SelectOptonWithAvatar from "./select-option-with-avatar";
 
 export {
   UpcomingEvents,
@@ -18,4 +19,5 @@ export {
   LatestActivitiesSkeleton,
   DashboardTotalCountCard,
   LatestActivities,
+  SelectOptonWithAvatar
 };
