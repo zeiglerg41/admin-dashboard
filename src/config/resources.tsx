@@ -21,15 +21,15 @@ export const resources: IResourceItem[] = [
       icon: <ShopOutlined />,
     },
   },
-  {
-    name: "tasks",
-    list: "/tasks",
-    show: "/tasks/new",
-    create: "/tasks/new",
-    edit: "tasks/edit/:id",
-    meta: {
-      label: "Tasks",
-      icon: <ShopOutlined />,
-    },
-  },
+//   {
+//     name: "tasks",
+//     list: "/tasks",
+//     show: "/tasks/new",
+//     create: "/tasks/new",
+//     edit: "tasks/edit/:id",
+//     meta: {
+//       label: "Tasks",
+//       icon: <ShopOutlined />,
+//     },
+//   },
 ];
