@@ -12,7 +12,7 @@ import "@refinedev/antd/dist/reset.css";
 
 import { Home, ForgotPassword, Login, Register, CompanyList } from "./pages";
 
-import { dataProvider, liveProvider } from "./providers";
+import { dataProvider, liveProvider, authProvider } from "./providers";
 import routerBindings, {
   CatchAllNavigate,
   DocumentTitleHandler,
@@ -21,7 +21,6 @@ import routerBindings, {
 
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { authProvider } from "./providers";
 import Layout from "./components/layout";
 import { resources } from "./config/resources";
 import Create from "./pages/company/create";
